@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,27 @@
     <script src="./script.js" defer></script>
     <title>Library</title>
 </head>
+
 <body>
-    <h1>Library</h1>
-    <div class="bl">
+    <div class="new-book">
+        <h1>Library</h1>
+        <label for="add-book">Add Book</label>
+        <button type="button" class="add-book" name="add-book" autofocus>+</button>
+    </div>
+    <div class="book-form">
         <form name="book">
             <label for="title">Title: </label>
-            <input type="text" id="title" name="title" >
+            <input type="text" id="title" name="title" autofocus>
             <label for="author">Author: </label>
             <input type="text" id="author" name="author">
             <label for="pages">Pages: </label>
             <input type="number" id="pages" name="pages">
             <button type="submit" id="submit" name="book">Submit</button>
+            <button type="reset" class="close-form" name="book">X</button>
         </form>
     </div>
-    <div class="book-card-container">
-        
-    </div>
+    <div class="book-card-container"></div>
 
 </body>
+
 </html>
