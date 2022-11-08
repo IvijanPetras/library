@@ -32,6 +32,8 @@ window.addEventListener("DOMContentLoaded", () => {
     myLibrary.map((book) => {
       const newEl = document.createElement("div");
       newEl.className = "newEl";
+      const btnContainer = document.createElement("div");
+      btnContainer.className = "btn-container";
       const cardTitle = document.createElement("h2");
       cardTitle.innerText = "Title: " + book.title;
       const cardAuthor = document.createElement("h3");
@@ -62,11 +64,12 @@ window.addEventListener("DOMContentLoaded", () => {
         if (index > -1) {
           myLibrary.splice(index, 1);
         }
-        const imidiateParent = removeBtn.parentElement;
+        const imidiateParent = removeBtn.closest(".newEl");
         imidiateParent.remove();
         //console.log(myLibrary,index, 'remove');
       });
-      newEl.append(cardTitle, cardAuthor, cardPages, removeBtn, readCheck);
+      btnContainer.append(readCheck,removeBtn);
+      newEl.append(cardTitle, cardAuthor, cardPages, btnContainer);
       bookContainer.append(newEl);
       console.log(myLibrary, "bookthecard");
     });
@@ -88,12 +91,13 @@ window.addEventListener("DOMContentLoaded", () => {
     bookContainer.innerHTML = null;
     addBookToLibrary();
     bookToCard();
-    bookName.focus();
+    addBook.focus();
     bookFormContainer.classList.remove("book-form-clicked");
   });
 
   addBook.addEventListener('click', () => {
     bookFormContainer.classList.add("book-form-clicked");
+    bookName.focus();
   });
   closeForm.addEventListener('click', () => {
     bookFormContainer.classList.remove("book-form-clicked");
