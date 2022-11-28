@@ -9,16 +9,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const closeForm = document.querySelector(".close-form");
 
   let myLibrary = [
-    // {
-    //   title: "ova",
-    //   author: "onaj",
-    //   pages: 98,
-    // },
-    // {
-    //   title: "ona",
-    //   author: "taj",
-    //   pages: 67,
-    // }
   ];
 
   const Book = function (title, author, pages) {
