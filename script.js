@@ -11,12 +11,21 @@ window.addEventListener("DOMContentLoaded", () => {
   let myLibrary = [
   ];
 
-  const Book = function (title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = true;
+  class Book {
+    constructor(title,author,pages){
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.read = true;
+    }
   };
+
+  // const Book = function (title, author, pages) {
+  //   this.title = title;
+  //   this.author = author;
+  //   this.pages = pages;
+  //   this.read = true;
+  // };
 
   function bookToCard() {
     myLibrary.map((book) => {
@@ -56,7 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         const imidiateParent = removeBtn.closest(".newEl");
         imidiateParent.remove();
-        //console.log(myLibrary,index, 'remove');
+
       });
       btnContainer.append(readCheck,removeBtn);
       newEl.append(cardTitle, cardAuthor, cardPages, btnContainer);
@@ -66,13 +75,15 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function addBookToLibrary() {
-    let newBook = new Book(bookName.value, bookAuthor.value, bookPages.value);
+    const newBook = new Book(bookName.value,bookAuthor.value,bookPages.value);
     myLibrary.push(newBook);
     bookName.value = null;
     bookAuthor.value = null;
     bookPages.value = null;
-    console.log(newBook.read);
+    console.log(newBook);
   }
+
+
 
   bookSubmit.addEventListener("click", (e) => {
     e.preventDefault();
